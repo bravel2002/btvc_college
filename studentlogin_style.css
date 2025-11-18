@@ -1,0 +1,168 @@
+body {
+  background: linear-gradient(135deg, #00a6d6, #004f7a);
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 380px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: fadeIn 0.8s ease;
+}
+
+.login-header {
+  background: #00a6d6;
+  color: #fff;
+  text-align: center;
+  padding: 25px 0;
+  border-bottom: 3px solid #008bb3;
+}
+
+.login-header h2 {
+  margin: 0;
+  font-size: 1.4em;
+  letter-spacing: 0.5px;
+}
+
+.login-header img.logo {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 10px;
+  border: 2px solid #fff;
+}
+
+form {
+  padding: 25px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-top: 12px;
+  color: #333;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  font-size: 0.95em;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #00a6d6;
+  box-shadow: 0 0 5px rgba(0, 166, 214, 0.3);
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.forgot-btn, .login-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.forgot-btn {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+.forgot-btn:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+.login-btn {
+  background-color: #00a6d6;
+  color: #fff;
+}
+
+.login-btn:hover {
+  background-color: #008bb3;
+  transform: scale(1.05);
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Smooth entry animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== DROPDOWN MENU STYLE ========== */
+.dropdown {
+  cursor: pointer;
+}
+
+.drop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  color: #fff;
+  background: #0078a8;
+  transition: background 0.3s;
+}
+
+.drop-header:hover {
+  background: #009fdc;
+}
+
+.dropdown-menu {
+  display: none;
+  background: #f4f7fa;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  transition: background 0.2s;
+}
+
+.dropdown-menu li:hover {
+  background: #e3e9ef;
+}
+
+/* Caret icon rotation on active */
+.dropdown.active .caret-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}

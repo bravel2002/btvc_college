@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;         /* sticks to the left */
+    top: 0px;               /* below the topbar height */
+    left: 0;
+    width: 250px;
+    height: calc(100% - 60px); /* full height minus topbar */
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px 0;
+    box-sizing: border-box;
+    overflow-y: auto;        /* allows scrolling if menu is too long */
+}
+
+
+.sidebar-top {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style for the school logo in the sidebar */
+.logo-img {
+    width: 70px;       /* adjust width to make it smaller */
+    height: 70px;      /* adjust height proportionally */
+    border-radius: 50%; /* makes it circular */
+    margin-bottom: 8px; /* space below the logo */
+    object-fit: cover;  /* ensures the image fits nicely */
+}
+
+
+.student-name {
+    margin: 0;
+    font-size: 18px;
+}
+
+.online-status {
+    font-size: 14px;
+    color: #2ecc71;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.online-status .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+}
+
+.nav-title {
+    font-size: 14px;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+    color: #bdc3c7;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #34495e;
+    border-radius: 3px;
+}
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 12px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.sidebar ul li:hover {
+    background-color: #34495e;
+}
+
+/* Top Bar */
+.topbar {
+    position: fixed;      /* stays on top when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #34495e; /* a color that matches the sidebar */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Push sidebar and main content below the top bar */
+.sidebar {
+    margin-top: 60px;   /* same as topbar height */
+}
+
+.main-content {
+    margin-left: 250px;       /* same as sidebar width */
+    margin-top: 60px;         /* same as topbar height */
+    padding: 20px;
+    min-height: calc(100vh - 60px); /* full viewport height minus topbar */
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #34495e;
+    color: white;
+    display: flex;
+    justify-content: space-between; /* portal name left, logout right */
+    align-items: center;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-btn {
+    color: white;
+    text-decoration: none;
+    background-color: #e74c3c;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* reduce gap so it’s tighter */
+}
+
+/* Smaller font for dropdown items */
+.dropdown-menu li {
+  font-size: 14px;   /* smaller text */
+  padding: 8px 20px; /* slightly reduced padding */
+}
+
+/* Optional: make the main header look bold and slightly larger for contrast */
+.drop-header {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dropdown-menu {
+  padding-left: 10px;
+}
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+}
+
+/* Main header for dropdown */
+.drop-header {
+  cursor: pointer;
+  padding: 10px 20px;
+  display: block;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.drop-header:hover {
+  background-color: #006f99;
+  color: white;
+}
+
+/* Dropdown menu - directly below main option */
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #003b57;
+  margin: 0;
+  padding-left: 25px; /* indentation */
+}
+
+/* Show dropdown when active */
+.dropdown.active .dropdown-menu {
+  display: flex;
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+  font-size: 14px;
+  color: #fff;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  text-decoration: underline;
+  color: #00bfff;
+}
+
+.social-panel {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+    margin: 18px 0 0 0;
+    padding-bottom: 12px;
+}
+.social-panel a {
+    color: #fff;
+    transition: color 0.2s, transform 0.2s;
+    font-size: 22px;
+    text-decoration: none;
+}
+.social-panel a:hover { transform: scale(1.15);}
+.social-panel a[title="Facebook"]:hover { color: #3b5998;}
+.social-panel a[title="Twitter"]:hover { color: #1da1f2;}
+.social-panel a[title="WhatsApp"]:hover { color: #25D366;}

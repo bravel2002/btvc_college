@@ -1,0 +1,83 @@
+/* Main content spacing */
+.main-content {
+    margin-left: 150px; /* push content away from sidebar */
+    margin-top: 50px;  /* space below header */
+    padding: 20px;
+    max-width: calc(100% - 150px); /* prevent content overflow */
+}
+
+/* Container for general cards */
+.cards-container, .fee-summary {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between; /* spread cards evenly */
+}
+
+/* Individual card style */
+.card, .fee-card {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1 1 calc(33.333% - 20px); /* 3 cards per row with gap */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .fee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h3, .fee-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.card .value, .fee-card p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Fee summary container spacing */
+.fee-summary {
+    margin-bottom: 40px;
+}
+
+/* Fee card colors */
+.fee-card.total {
+    background-color: #d0e8ff; /* light blue */
+    color: #004aad; /* dark blue text */
+}
+
+.fee-card.paid {
+    background-color: #d0ffd6; /* light green */
+    color: #228B22; /* dark green text */
+}
+
+.fee-card.balance {
+    background-color: #ffd6d6; /* light red */
+    color: #e74c3c; /* red text */
+}
+
+/* Responsive: stack cards on smaller screens */
+@media (max-width: 992px) {
+    .card, .fee-card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .main-content {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .card, .fee-card {
+        flex: 1 1 100%; /* 1 card per row on mobile */
+    }
+}
