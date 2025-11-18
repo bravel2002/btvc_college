@@ -35,7 +35,7 @@ $payload = [
     'PartyA' => $PartyA,
     'PartyB' => $PartyB,
     'PhoneNumber' => $phone,
-    'CallBackURL' => 'https://dorsiferous-unexecuting-annelle.ngrok-free.dev/mycollege/mpesa/callback.php',
+    'CallBackURL' => 'https://btvc-college.onrender.com/mpesa/callback.php',
     'AccountReference' => $AccountReference,
     'TransactionDesc' => $TransactionDesc
 ];
