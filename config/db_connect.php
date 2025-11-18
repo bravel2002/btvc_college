@@ -13,7 +13,7 @@ $port     = getenv('DB_PORT') ?: 5432;
 // Build connection string
 $conn_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
 
-// Connect to Postgres
+// Connect to PostgreSQL
 $conn = pg_connect($conn_string);
 
 // Check connection

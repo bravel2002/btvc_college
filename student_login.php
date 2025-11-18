@@ -5,11 +5,9 @@ include('config/db_connect.php');
 $error = ""; // initialize error variable
 
 if (isset($_POST['login'])) {
-    // Escape input to prevent SQL injection
     $admission = pg_escape_string($conn, $_POST['admission']);
     $password  = pg_escape_string($conn, $_POST['password']);
 
-    // Query the students table
     $query = "SELECT * FROM students WHERE admission = '$admission' AND password = '$password'";
     $result = pg_query($conn, $query);
 
@@ -17,12 +15,11 @@ if (isset($_POST['login'])) {
         $error = "Query failed: " . pg_last_error($conn);
     } elseif (pg_num_rows($result) == 1) {
         $student = pg_fetch_assoc($result);
-        $_SESSION['admission']    = $student['admission'];
-        $_SESSION['fullname']     = $student['fullname'];
-        $_SESSION['course']       = $student['course'];
-        $_SESSION['year_of_study']= $student['year_of_study'];
+        $_SESSION['admission']     = $student['admission'];
+        $_SESSION['fullname']      = $student['fullname'];
+        $_SESSION['course']        = $student['course'];
+        $_SESSION['year_of_study'] = $student['year_of_study'];
 
-        // Redirect to dashboard
         header("Location: student_dashboard.php");
         exit();
     } else {
