@@ -3,17 +3,18 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Check if Render environment variables exist
-$servername = getenv('DB_HOST') ?: 'localhost';
-$username   = getenv('DB_USER') ?: 'root';
-$password   = getenv('DB_PASS') ?: ''; // XAMPP default has empty password
-$database   = getenv('DB_NAME') ?: 'college_portal'; // your local DB name
+// Get database credentials from environment variables
+$host     = getenv('DB_HOST');
+$dbname   = getenv('DB_NAME');
+$user     = getenv('DB_USER');
+$password = getenv('DB_PASS');
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
+// Create connection using pg_connect
+$conn_string = "host=$host dbname=$dbname user=$user password=$password";
+$conn = pg_connect($conn_string);
 
 // Check connection
 if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
+    die("Database connection failed: " . pg_last_error());
 }
 ?>
