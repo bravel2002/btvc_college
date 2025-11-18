@@ -1,7 +1,9 @@
-<Directory /var/www/html>
-    Options Indexes FollowSymLinks
-    AllowOverride All
-    Require all granted
-</Directory>
+# Enable URL rewriting
+RewriteEngine On
 
+# Set index.php as default
 DirectoryIndex index.php
+
+# Optional: redirect to login page
+# Uncomment if you want all visits to go to student_login.php
+# RewriteRule ^$ student_login.php [L]
