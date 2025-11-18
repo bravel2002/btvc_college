@@ -1,17 +1,8 @@
-# Use official PHP image with Apache
-FROM php:8.2-apache
+# Enable URL rewriting
+RewriteEngine On
 
-# Enable mod_rewrite for Apache
-RUN a2enmod rewrite
+# Set index.php as default
+DirectoryIndex index.php
 
-# Copy project files to Apache web root
-COPY . /var/www/html/
-
-# Set correct permissions (optional but recommended)
-RUN chown -R www-data:www-data /var/www/html
-
-# Expose port 80
-EXPOSE 80
-
-# Start Apache in the foreground
-CMD ["apache2-foreground"]
+# Optional: redirect all traffic to student_login.php
+# RewriteRule ^$ student_login.php [L]
