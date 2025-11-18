@@ -1,16 +1,19 @@
 <?php
-// Enable error reporting for debugging
+// Enable error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Get database credentials from environment variables
+// Load environment variables
 $host     = getenv('DB_HOST');
 $dbname   = getenv('DB_NAME');
 $user     = getenv('DB_USER');
 $password = getenv('DB_PASS');
+$port     = getenv('DB_PORT') ?: 5432;
 
-// Create connection using pg_connect
-$conn_string = "host=$host dbname=$dbname user=$user password=$password";
+// Build connection string
+$conn_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
+
+// Connect to Postgres
 $conn = pg_connect($conn_string);
 
 // Check connection
