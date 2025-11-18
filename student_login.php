@@ -1,31 +1,32 @@
-    <?php
-    session_start();
-    include('config/db_connect.php');
+<?php
+session_start();
+include('config/db_connect.php');
 
-    $error = ""; // initialize error variable
+$error = ""; // initialize error variable
 
-    if (isset($_POST['login'])) {
-        $admission = mysqli_real_escape_string($conn, $_POST['admission']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
+if (isset($_POST['login'])) {
+    $admission = mysqli_real_escape_string($conn, $_POST['admission']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-        $query = "SELECT * FROM students WHERE admission = '$admission' AND password = '$password'";
-        $result = mysqli_query($conn, $query);
+    $query = "SELECT * FROM students WHERE admission = '$admission' AND password = '$password'";
+    $result = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($result) == 1) {
-            $student = mysqli_fetch_assoc($result);
-            $_SESSION['admission'] = $student['admission'];
-            $_SESSION['fullname'] = $student['fullname'];
-            $_SESSION['course'] = $student['course'];
-            $_SESSION['year_of_study'] = $student['year_of_study'];
+    if (mysqli_num_rows($result) == 1) {
+        $student = mysqli_fetch_assoc($result);
+        $_SESSION['admission'] = $student['admission'];
+        $_SESSION['fullname'] = $student['fullname'];
+        $_SESSION['course'] = $student['course'];
+        $_SESSION['year_of_study'] = $student['year_of_study'];
 
-            // Redirect to dashboard (same folder)
-            header("Location: student_dashboard.php");
-            exit();
-        } else {
-            $error = "Invalid admission number or password.";
-        }
+        // Redirect to dashboard
+        header("Location: student_dashboard.php");
+        exit();
+    } else {
+        $error = "Invalid admission number or password.";
     }
-    ?>
+}
+?>
+
 
     <!DOCTYPE html>
     <html lang="en">
