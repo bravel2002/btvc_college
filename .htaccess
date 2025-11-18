@@ -1,8 +1,13 @@
 # Enable URL rewriting
 RewriteEngine On
 
-# Set index.php as default
-DirectoryIndex index.php
+# Set student_login.php as default index
+DirectoryIndex student_login.php
 
-# Optional: redirect all traffic to student_login.php
-# RewriteRule ^$ student_login.php [L]
+# Optional: redirect root to login page (redundant with DirectoryIndex, but safer)
+RewriteRule ^$ student_login.php [L]
+
+# Example: pretty URLs for future pages (optional)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [L]
